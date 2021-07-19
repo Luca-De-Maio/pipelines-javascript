@@ -4,8 +4,15 @@
 # https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
 
 trigger:
-- master
+- dev
 
+schedules:
+- cron: "*/5 * * * *"
+  displayName: Every five minutes
+  branches:
+    include:
+    - dev
+    
 pool:
   vmImage: ubuntu-latest
 
